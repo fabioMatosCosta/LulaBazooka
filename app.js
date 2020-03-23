@@ -1,5 +1,4 @@
 require('dotenv').config();
-const bcrypt     = require("bcrypt");
 const bodyParser   = require('body-parser');
 const cookieParser = require('cookie-parser');
 const express      = require('express');
@@ -8,10 +7,16 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
+const bcrypt     = require("bcrypt");
+const session    = require("express-session");
+const MongoStore = require("connect-mongo")(session);
+
+const mongoUsername = process.env.MONGOUSERNAME
+const mongoPassword = process.env.MONGOPASSWORD
 
 
 mongoose
-  .connect('mongodb://localhost/dambioproj', {useNewUrlParser: true,useUnifiedTopology: true})
+  .connect(`mongodb+srv://${mongoUsername}:${mongoPassword}@cluster0-v2ysd.mongodb.net/dopperdb`, {useNewUrlParser: true,useUnifiedTopology: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -37,7 +42,20 @@ app.use(require('node-sass-middleware')({
   dest: path.join(__dirname, 'public'),
   sourceMap: true
 }));
-      
+
+app.use(session({
+  secret: "basic-auth-secret",
+  cookie: { maxAge: 60000 },
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    ttl: 24 * 60 * 60 // 1 day
+  })
+}));
+
+function protect(req,res,next){
+  if(req.session.currentUser) next();
+  else res.redirect("/");
+}
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -54,9 +72,13 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 const index = require('./routes/index');
 const signup = require("./routes/signup")
 const login = require("./routes/login")
+const profile = require("./routes/profile")
 app.use('/', index);
 app.use('/', signup);
 app.use('/', login);
-
+app.use('/', profile);
+app.use((err,req,res,next)=>{
+  res.render("error.hbs",{message:err})
+})
 
 module.exports = app;
