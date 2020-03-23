@@ -37,4 +37,15 @@ router.post("/signup", (req, res, next) => {
 });
 
 
+router.get("/username-exists/:username",(req,res)=>{
+  User.findOne({username: req.params.username})
+  .then((user)=>{
+    if(user)res.json({exists:true})
+    else res.json({exists:false})
+  })
+  .catch((error)=>{
+    res.json({error: error.message});
+  })
+})
+
 module.exports = router;
