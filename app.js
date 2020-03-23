@@ -73,10 +73,14 @@ const index = require('./routes/index');
 const signup = require("./routes/signup")
 const login = require("./routes/login")
 const profile = require("./routes/profile")
+const edit = require("./routes/edit-profile")
+const logout = require("./routes/logout")
 app.use('/', index);
 app.use('/', signup);
 app.use('/', login);
 app.use('/', profile);
+app.use('/', edit);
+app.use('/', logout);
 app.use((err,req,res,next)=>{
   res.render("error.hbs",{message:err})
 })
