@@ -1,5 +1,5 @@
 <div class="container bg-dark" >
-<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+<nav class="navbar  navbar-expand-lg navbar-dark" style="background-color:232823">
     <a class="navbar-brand" href="#">LulaBazooka</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,17 +25,18 @@
                     <a class="dropdown-item" href="#">Something else here</a>
                 </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#">Disabled</a>
-            </li>
+            <a href="/">Home</a>
+            <a href="/signup">Signup!</a>
+            <a href="/login">Login!</a>
+            <a href="/index">Index!</a>
+            <a href="/profile">profile!</a>
+            <a href="/band-profile">Band Profile!</a>
+            <a href="/edit-profile">Edit Profile!</a>
+            <a href="/createband">Create Band!</a>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
     </div>
 </nav>
-</div>
+
 
 {{#if user}}
 <li>
@@ -47,6 +48,7 @@
 <li><a href="#logout">Logout</a></li>
 {{else}}
 <li><a href="/signin">Sign in</a></li>
-<li><a href="/login">Log in</a></li>
+<li><a href="/login"><button type="button">Login!</button></a></li>
 {{/if}}
 <div class="container"></div>
+</div>

@@ -21,6 +21,16 @@ const userSchema = new Schema({
             },
             message: props => `${props.value}is not a valid password.8 chars at least one uppercase one lowercase`
 
+        },
+        email:{
+            required:true,
+            type:String
+        },
+        firstName:{
+            type:String
+        },
+        lastName:{
+            type:String
         }
     }
 })

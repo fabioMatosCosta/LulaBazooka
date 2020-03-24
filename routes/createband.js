@@ -30,7 +30,7 @@ router.post("/create-band", (req,res,next) =>{
             info: req.body.info,
             admin: req.session.currentUser._id
           })
-            res.redirect("/band-profile")
+            res.redirect(`/band-profile/`)
           }
         })
     .catch((err)=>{
