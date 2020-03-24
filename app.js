@@ -52,16 +52,26 @@ app.use(session({
   })
 }));
 
+//middleware functions
+
 function protect(req,res,next){
   if(req.session.currentUser) next();
   else res.redirect("/");
 }
 
+function addUserObject(req, res, next){
+  if(req.session.currentUser){
+    req.locals.user = req.session.currentUser;
+  }
+  next();
+}
+
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
-
+hbs.registerPartials(__dirname + '/views/partials');
 
 
 // default value for title local
@@ -75,12 +85,18 @@ const login = require("./routes/login")
 const profile = require("./routes/profile")
 const edit = require("./routes/edit-profile")
 const logout = require("./routes/logout")
+const bandCreate = require("./routes/createband")
+const bandProfile = require("./routes/band-profile")
+
+// app.use(addUserObject);
 app.use('/', index);
 app.use('/', signup);
 app.use('/', login);
 app.use('/', profile);
 app.use('/', edit);
 app.use('/', logout);
+app.use('/', bandCreate);
+app.use('/', bandProfile);
 app.use((err,req,res,next)=>{
   res.render("error.hbs",{message:err})
 })
