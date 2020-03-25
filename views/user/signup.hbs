@@ -1,13 +1,12 @@
 <script src="/javascripts/script.js"></script>
-
+<div class="container">
 <form action="/signup" method="POST">
-  <label for="username"></label>
+<div class="form-group row">
+  <label for="username">Username!</label>
   <input type="text" name="username" required id="username" placeholder="username">
   <p id="username-validation"></p>
-  <div>
-    <label for="firstName">FirstName <small>Only Alphabetic Characters!</small></label>
-  </div>
-  <div>
+ <div class="form-group row">
+    <label for="firstName" class="col-form-label">FirstName <small>Only Alphabetic Characters!</small></label>
     <input type="text" pattern="^[A-Za-z]+$" required name="firstName" placeholder="FirstName">
   </div>
   <div>
@@ -36,4 +35,4 @@
 </div>
 <button type="submit">Create!</button>
 </form>
-
+</div>

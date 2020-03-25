@@ -11,11 +11,16 @@ const bandSchema = new Schema({
     genres: [{
         type: String,
     }],
-    info:String,
+    info: String,
     admin: {
         type: mongoose.Types.ObjectId,
         ref: "User"
-    }
+    },
+    
+    members : [{
+        type: mongoose.Types.ObjectId,
+        ref: "Users"
+    }]
 })
 
 const Band = mongoose.model("Band",bandSchema)

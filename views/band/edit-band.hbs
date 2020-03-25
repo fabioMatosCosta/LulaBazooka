@@ -1,0 +1,17 @@
+<form action="/edit-band/{{bandHbs._id}}" method="POST">
+    <div class="form-group row">
+        <label for="info" class="form-check-label">Band Bio</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-check-input"  name="info" placeholder="info">
+        </div>
+    </div>
+    <input class="form-check-input" type="checkbox"  class="checks" name="Hard Rock">
+    <label for="hard" class="form-check-label">Hard Rock</label><br>
+    <input type="checkbox"  class="checks form-check-input" name="Heavy Metal">
+    <label for="heavy" class="form-check-label">Heavy Metal</label><br></label>
+    <input type="checkbox"  class="checks form-check-input" name="proggressive Metal">
+    <label for="prog" class="form-check-label">Progressive Metal</label><br>
+    <input type="checkbox"  class="checks form-check-input" name="Black Metal">
+    <label for="black" class="form-check-label">POP!Kidding...Black Metal\m/</label><br>
+        <button type="submit">Edit</button>
+</form>

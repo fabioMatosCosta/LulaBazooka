@@ -5,15 +5,14 @@ const session    = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 
 
-router.get('/edit-profile', (req, res, next) => {
-  User.findById(req.session.currentUser)
+router.get('/edit-profile/', (req, res, next) => {
+  User.findById(req.session.currentUser._id)
   .then((user)=>{
     res.render('user/edit-profile',{userHbs: user})
   })
 });
 
-router.post('/edit-profile', (req, res, next) =>{
-  const { username, password , email ,firstName,lastName } = req.body;
+router.post('/edit-profile/', (req, res, next) =>{
   function getInstruments(){
     let arr = [];
     for (const key in req.body) {
@@ -22,8 +21,11 @@ router.post('/edit-profile', (req, res, next) =>{
       return arr;
     }
     let instrumentsArr = getInstruments();
-  User.findByIdAndUpdate(req.session.currentUser, {
-    instruments:instrumentsArr
+  User.findByIdAndUpdate(req.session.currentUser._id, {
+    instruments: instrumentsArr
+  })
+  .then((user)=>{
+    res.redirect("/profile")
   })
 })
 

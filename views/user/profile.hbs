@@ -2,16 +2,14 @@
 <h1> Hey {{profLoop.firstName}}...Sup?</h1>
 Instruments:
 <ol>
-
   {{#each profLoop.instruments}}
-  <li><div>{{this}}</div></li>
-{{/each}}
+    <li><div>{{this}}</div></li>
+  {{/each}}
 </ol>
 </div>
-<div>
-  Bands: <br>
-
-
+<div class="user-bands">
+  <h6>Bands:</h6>
+  
   <a href="/create-band"><button type="submit">Create A Band</button></a>
   <a href="/find-band"><button type="submit">Join A Band</button></a>
 </div>
@@ -22,6 +20,7 @@ Instruments:
 
 <a href="/logout"><button type="submit">Rock away!</button></a>
 </div>
+
 {{!-- <section>
   <h2>Upload your photo</h2>
   <form action="/upload" method="post" enctype="multipart/form-data">

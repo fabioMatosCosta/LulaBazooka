@@ -2,7 +2,8 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; 
   color: white!important;
-  /* font-family: 'Montserrat Alternates', sans-serif; */
+  font-family: 'Montserrat Alternates', sans-serif;
+  text-align: center;
 }
 a {
   color: #00B7FF; }
@@ -23,4 +24,21 @@ a {
   background-color: white;
   color: red;
 }
-/*# sourceMappingURL=style.css.map */
+
+#page-title{
+  font-family: 'Press Start 2P', cursive;
+  font-weight: bold;
+  margin-bottom: 5rem;
+}
+
+#footer{
+  position: absolute;
+  bottom: 5rem;
+ 
+}
+
+.wide-btn{
+  width: 100%;
+  height: 5vh;
+}
+

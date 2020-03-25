@@ -89,6 +89,7 @@ const bandProfile = require("./routes/band-profile")
 const bandFind = require("./routes/bandfind")
 const memberFind = require("./routes/memberfind")
 const profileDetail = require("./routes/profile-detail")
+const editBand = require("./routes/band-edit")
 
 // app.use(addUserObject);
 app.use('/', index);
@@ -102,6 +103,7 @@ app.use('/', bandProfile);
 app.use('/', bandFind);
 app.use('/', memberFind);
 app.use('/', profileDetail);
+app.use('/', editBand);
 app.use((err,req,res,next)=>{
   res.render("error.hbs",{message:err})
 })
