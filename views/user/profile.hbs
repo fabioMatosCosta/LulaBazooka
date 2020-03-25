@@ -1,8 +1,9 @@
-<h1>Your profile</h1>
+<h1>{{profLoop.firstName}} {{profLoop.lastName}}</h1>
 
-{{#each profLoop}}
-{{firstName}}
-{{/each}}
+<p>{{profLoop.email}}</p>
+
+
+
 <a href="/edit-profile"><button type="submit">Edit Your Rockfile!</button></a>
 
 <a href="/logout"><button type="submit">Rock away!</button></a>

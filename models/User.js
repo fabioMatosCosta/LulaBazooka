@@ -20,8 +20,8 @@ const userSchema = new Schema({
                 return /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/.test(v);
             },
             message: props => `${props.value}is not a valid password.8 chars at least one uppercase one lowercase`
-
-        },
+        }
+    },
         email:{
             required:true,
             type:String
@@ -32,7 +32,6 @@ const userSchema = new Schema({
         lastName:{
             type:String
         }
-    }
 })
 
 const User = mongoose.model("User", userSchema);
