@@ -1,8 +1,12 @@
 <h2>{{bandHbs.bandName}}</h2>
 <ul>
-{{#each bandHbs.genres}}
-    <li>{{this}}</li>
-{{/each}}
+    {{#each bandHbs.genres}}
+        <li>{{this}}</li>
+    {{/each}}
 </ul>
 <p>{{bandHbs.info}}</p>
 <p>Admin email: {{bandHbs.admin.email}}</p>
+
+<a href="/find-member"><button>Find members</button></a>
+
+<a href=""><button>Edit</button></a>

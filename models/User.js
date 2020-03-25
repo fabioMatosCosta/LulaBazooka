@@ -35,7 +35,6 @@ const userSchema = new Schema({
         instruments: [{
             type: String,
         }],
-        
 })
 
 const User = mongoose.model("User", userSchema);

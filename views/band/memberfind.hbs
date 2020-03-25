@@ -1,3 +1,8 @@
+
 {{#each userHbs}}
-<h2>{{_id}}</h2>
+    <div class="member">
+        <h2>{{firstName}}</h2>
+        <p>{{instruments}}</p><br>
+        <a href="/profile/{{_id}}"><button type="submit">Find out more about me!</button></a>
+    </div>
 {{/each}}
