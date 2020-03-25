@@ -12,3 +12,5 @@ router.get('/band-profile/:id', (req, res) => {
 });
 
 module.exports = router;
+
+//band members add
