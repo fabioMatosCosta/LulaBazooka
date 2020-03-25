@@ -11,6 +11,14 @@ router.get('/signup', (req, res) => {
 
 router.post("/signup", (req, res, next) => {
   const { username, password , email ,firstName,lastName } = req.body;
+  function getGenres(){
+    let arr = [];
+    for (const key in req.body) {
+      if(req.body[key]=== "on") arr.push(key)
+    }
+      return arr;
+    }
+    let instrumentsArr = getGenres();
   User.findOne({ "username": username })
     .then((user) => {
       if (user !== null) {
@@ -25,7 +33,8 @@ router.post("/signup", (req, res, next) => {
               password: hash,
               email:email,
               firstName:firstName,
-              lastName:lastName
+              lastName:lastName,
+              instruments:instrumentsArr
             })
               .then((user) => {
                 res.redirect("/login")

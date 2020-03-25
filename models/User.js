@@ -31,7 +31,11 @@ const userSchema = new Schema({
         },
         lastName:{
             type:String
-        }
+        },
+        instruments: [{
+            type: String,
+        }],
+        
 })
 
 const User = mongoose.model("User", userSchema);
