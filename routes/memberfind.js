@@ -3,7 +3,7 @@ const router = express.Router();
 const User = require("../models/User")
 
 router.get("/find-member",(req,res)=>{
-User.find({})
+User.find()
     .then((user)=>{
         res.render("band/memberfind", {userHbs: user})
     })

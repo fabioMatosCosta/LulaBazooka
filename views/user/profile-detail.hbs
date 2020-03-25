@@ -1,0 +1,16 @@
+<h1>My name is {{profLoop.firstName}} {{profLoop.lastName}}</h1>
+<h6>I rock this instrument(s):</h6>
+<ol>
+    {{#each profLoop.instruments}}
+        <li>{{this}}</li>
+    {{/each}}
+</ol>
+
+<p>If you want to contact me, this is my email: {{profLoop.email}}</p>
+
+{{!-- <h6>And I play this genres:</h6>
+<ol>
+    {{#each profLoop.genres}}
+        <li>{{this}}</li>
+    {{/each}}
+</ol> --}}

@@ -1,6 +1,8 @@
 {{#each bandHbs}}
-<h2>{{bandName}}</h2>
-<small>{{genres}}</small><br>
-<p>creator: {{admin.firstName}}</p>
-<a href="/band-profile/{{_id}}"><button type="submit">Find out more about us!</button></a>
+    <div class="band">
+        <h2>{{bandName}}</h2>
+        <p>{{genres}}</p><br>
+        <p>creator: {{admin.firstName}}</p>
+        <a href="/band-profile/{{_id}}"><button type="submit">Find out more about us!</button></a>
+    </div>
 {{/each}}

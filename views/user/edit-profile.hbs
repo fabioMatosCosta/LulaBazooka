@@ -1,8 +1,19 @@
-<section>
+{{!-- <section>
   <h2>Upload your photo</h2>
   <form action="/upload" method="post" enctype="multipart/form-data">
     <input type="text" name="name">
     <input type="file" name="photo">
     <input type="submit" value="Save">
   </form>
-</section>
+</section> --}}
+
+<form action="/edit-profile" method="POST" >
+  <input class="form-check-input" type="checkbox"  class="checks" name="guitar">
+  <label for="guitar" class="form-check-label">guitar</label><br>
+  <input class="form-check-input" type="checkbox"  class="checks" name="bass">
+  <label for="bass" class="form-check-label">bass</label><br>
+  <input class="form-check-input" type="checkbox"  class="checks" name="drums">
+  <label for="drums" class="form-check-label">drums</label><br>
+  </div>
+<button type="submit">Update!</button>
+</form>

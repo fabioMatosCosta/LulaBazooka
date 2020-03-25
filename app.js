@@ -14,7 +14,6 @@ const MongoStore = require("connect-mongo")(session);
 const mongoUsername = process.env.MONGOUSERNAME
 const mongoPassword = process.env.MONGOPASSWORD
 
-
 mongoose
   .connect(`mongodb+srv://${mongoUsername}:${mongoPassword}@cluster0-v2ysd.mongodb.net/dopperdb`, {useNewUrlParser: true,useUnifiedTopology: true})
   .then(x => {
@@ -89,6 +88,7 @@ const bandCreate = require("./routes/createband")
 const bandProfile = require("./routes/band-profile")
 const bandFind = require("./routes/bandfind")
 const memberFind = require("./routes/memberfind")
+const profileDetail = require("./routes/profile-detail")
 
 // app.use(addUserObject);
 app.use('/', index);
@@ -101,6 +101,7 @@ app.use('/', bandCreate);
 app.use('/', bandProfile);
 app.use('/', bandFind);
 app.use('/', memberFind);
+app.use('/', profileDetail);
 app.use((err,req,res,next)=>{
   res.render("error.hbs",{message:err})
 })
