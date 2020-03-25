@@ -2,6 +2,7 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; 
   color: white!important;
+  /* font-family: 'Montserrat Alternates', sans-serif; */
 }
 a {
   color: #00B7FF; }
@@ -11,7 +12,15 @@ a {
     border-radius: 1;
   }
 
-  input[type=button]{
-    border-radius: 1.25;
-  }
+.rounded-btns-red{
+  border-radius: 1.25rem;
+  background-color: red;
+  color: white;
+}
+
+.rounded-btns-white{
+  border-radius: 1.25rem;
+  background-color: white;
+  color: red;
+}
 /*# sourceMappingURL=style.css.map */
