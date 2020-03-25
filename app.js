@@ -48,7 +48,7 @@ app.use(session({
   cookie: { maxAge: 60000 },
   store: new MongoStore({
     mongooseConnection: mongoose.connection,
-    ttl: 24 * 60 * 60 // 1 day
+    ttl: 24 * 60 * 60 
   })
 }));
 
@@ -69,7 +69,7 @@ function addUserObject(req, res, next){
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 hbs.registerPartials(__dirname + '/views/partials');
 
@@ -87,6 +87,8 @@ const edit = require("./routes/edit-profile")
 const logout = require("./routes/logout")
 const bandCreate = require("./routes/createband")
 const bandProfile = require("./routes/band-profile")
+const bandFind = require("./routes/bandfind")
+const memberFind = require("./routes/memberfind")
 
 // app.use(addUserObject);
 app.use('/', index);
@@ -97,6 +99,8 @@ app.use('/', edit);
 app.use('/', logout);
 app.use('/', bandCreate);
 app.use('/', bandProfile);
+app.use('/', bandFind);
+app.use('/', memberFind);
 app.use((err,req,res,next)=>{
   res.render("error.hbs",{message:err})
 })

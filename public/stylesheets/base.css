@@ -1,12 +1,17 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
-
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; 
+  color: white!important;
+}
 a {
   color: #00B7FF; }
 
   input[type="button"]{
     width: 13rem;
     border-radius: 1;
+  }
+
+  input[type=button]{
+    border-radius: 1.25;
   }
 /*# sourceMappingURL=style.css.map */

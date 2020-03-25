@@ -3,9 +3,9 @@ const router = express.Router();
 const Band = require("../models/Band");
 
 
-router.get('/band-profile/', (req, res) => {
+router.get('/band-profile/:id', (req, res) => {
   Band
-  .findById()
+  .findById(req.params.id)
   .then((band)=>{
     res.render('band/band-profile', {bandHbs: band});
   })

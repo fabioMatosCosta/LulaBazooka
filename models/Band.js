@@ -9,9 +9,7 @@ const bandSchema = new Schema({
 
     },
     genres: [{
-
         type: String,
-//        enum:["Metal","Rock","Hard Rock","Progressive Metal"]
     }],
     info:String,
     admin: {

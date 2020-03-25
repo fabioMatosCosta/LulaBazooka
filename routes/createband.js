@@ -30,13 +30,14 @@ router.post("/create-band", (req,res,next) =>{
             info: req.body.info,
             admin: req.session.currentUser._id
           })
-            res.redirect(`/band-profile/`)
+          .then((band)=> {
+            res.redirect(`/band-profile/${band._id}`);
+          })
           }
         })
     .catch((err)=>{
       console.log("Error creating band:", err)
     })  
 })
-
 
 module.exports = router;
