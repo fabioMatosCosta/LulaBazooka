@@ -3,9 +3,13 @@ const router = express.Router();
 const Band = require("../models/Band")
 
 router.get("/find-band",(req,res)=>{
-Band.find()
-    .then((band)=>{
-        res.render("band/bandfind", {bandHbs: band})
+    Band.find()
+        .populate("admin")
+        .then((band)=>{
+            res.render("band/bandfind", {bandHbs: band})
+    })
+    .catch((err)=>{
+        console.log("Error", err);
     })
 })
 

@@ -14,7 +14,7 @@ const bandSchema = new Schema({
     info:String,
     admin: {
         type: mongoose.Types.ObjectId,
-        ref: "users"
+        ref: "User"
     }
 })
 

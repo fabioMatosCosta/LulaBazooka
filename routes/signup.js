@@ -10,7 +10,7 @@ router.get('/signup', (req, res) => {
 });
 
 router.post("/signup", (req, res, next) => {
-  const { username, password } = req.body;
+  const { username, password , email ,firstName,lastName } = req.body;
   User.findOne({ "username": username })
     .then((user) => {
       if (user !== null) {
@@ -22,7 +22,10 @@ router.post("/signup", (req, res, next) => {
           else {
             User.create({
               username: username,
-              password: hash
+              password: hash,
+              email:email,
+              firstName:firstName,
+              lastName:lastName
             })
               .then((user) => {
                 res.redirect("/login")
