@@ -8,7 +8,7 @@ const MongoStore = require("connect-mongo")(session);
 router.get('/profile', (req, res, next) => {
     User
       .findById(req.session.currentUser._id)
-      // .populate("bands")
+      .populate("bands")
       .then((user)=>{
         res.render("user/profile",{profLoop:user})
       })

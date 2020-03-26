@@ -1,5 +1,8 @@
-    <a href="/"><h4 id="page-title" class="mr-5">LulaBazooka</h4></a>
-
+    {{#if user}}
+        <a href="/profile"><h4 id="page-title" class="mr-5">LulaBazooka</h4></a>
+    {{else}}
+        <a href="/"><h4 id="page-title" class="mr-5">LulaBazooka</h4></a>
+    {{/if}}
 <div class="container" >
 <nav class="navbar  navbar-expand-lg navbar-dark" style="background-color:232823">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -8,22 +11,15 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <a href="/" class="btn btn-danger rounded-btns-red">Home</a>
-            <a href="/index" class="btn btn-danger rounded-btns-red">Index!</a>
-            <a href="/profile" class="btn btn-danger rounded-btns-red">profile!</a>
-            <a href="/band-profile" class="btn btn-danger rounded-btns-red">Band Profile!</a>
-            <a href="/edit-profile" class="btn btn-danger rounded-btns-red">Edit Profile!</a>
-            <a href="/create-band" class="btn btn-danger rounded-btns-red">Create Band!</a>
             {{#if user}}
+                <a href="/create-band" class="btn btn-danger rounded-btns-red">Create Band!</a>
                 <a href="/profile" class="btn btn-danger rounded-btns-red">{{user.firstName}}</a>
                 <a href="/logout" class="btn btn-danger rounded-btns-red">Logout</a>
             {{else}}
+                <a href="/" class="btn btn-danger rounded-btns-red">Home</a>
                 <a href="/signup" class="btn btn-danger rounded-btns-red">Signup!</a>
                 <a href="/login" class="btn btn-danger rounded-btns-red">Login!</a>
             {{/if}}
         </ul>
     </div>
 </nav>
-
-
-<div class="container"></div>
