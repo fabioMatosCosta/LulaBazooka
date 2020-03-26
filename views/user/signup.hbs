@@ -1,38 +1,56 @@
 <script src="/javascripts/script.js"></script>
 <div class="container">
-<form action="/signup" method="POST">
-<div class="form-group row">
-  <label for="username">Username!</label>
-  <input type="text" name="username" required id="username" placeholder="username">
-  <p id="username-validation"></p>
-  <div class="form-group row">
-    <label for="firstName" class="col-form-label">FirstName <small>Only Alphabetic Characters!</small></label>
-    <input type="text" pattern="^[A-Za-z]+$" required name="firstName" placeholder="FirstName">
-  </div>
-  <div>
-  </div>
-  <input class="form-check-input" type="checkbox"  class="checks" name="guitar">
-  <label for="guitar" class="form-check-label">guitar</label><br>
-  <input class="form-check-input" type="checkbox"  class="checks" name="bass">
-  <label for="bass" class="form-check-label">bass</label><br>
-  <input class="form-check-input" type="checkbox"  class="checks" name="drums">
-  <label for="drums" class="form-check-label">drums</label><br>
-  <div>
-  </div>
-  <div>
+  <form action="/signup" autocomplete="off" method="POST">
+    <div class="form-group row">
+      <label for="username" class="ml-5">Username!</label>
+      <div class="col-sm-10 searchbar">
+        <input type="text" class="txtb search_input" name="username" required id="username" placeholder="username">
+      </div>
+    </div>
+    <p id="username-validation"></p>
+    <div class="form-group row">
+      <label for="firstName" class="col-form-label">FirstName <small>Only Alphabetic Characters!</small></label>
+      <div class="col-sm-10 searchbar">
+        <input type="text" pattern="^[A-Za-z]+$" class="txtb search_input" required name="firstName" placeholder="FirstName">
+      </div>
+    </div>
+    <div class="form-group row">
+    <div class="col-sm-10">
+      <input class="form-check-input" type="checkbox" class="checks" name="guitar">
+    </div>
+    <label for="guitar" class="form-check-label">guitar</label><br>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-10">
+        <input class="form-check-input" type="checkbox" class="checks" name="bass">
+      </div>
+      <label for="bass" class="form-check-label">bass</label><br>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-10">
+        <input class="form-check-input" type="checkbox" class="checks" name="drums">
+      </div>
+      <label for="drums" class="form-check-label">drums</label><br>
+    </div>
+    <div class="form-group row mt-5">
       <label for="lastName">LastName <small>Only Alphabetic Characters!</small></label>
-  </div>
-  <div>
-    <input type="text" pattern="^[A-Za-z]+$" required name="lastName" placeholder="LastName">
-  </div>
-  <div>
+      <div class="col-sm-10 searchbar">
+        <input type="text" class="txtb search_input" pattern="^[A-Za-z]+$" required name="lastName" placeholder="LastName">
+      </div>
+    </div>
+    <div class="form-group row mt-5">
       <label for="email"></label>
-  <input type="email" name="email" required id="email" placeholder="email">
-  </div>
-  <div>
-  <label for="password">Password <small>At least 8 characters one uppercase one lowercase</small></label>
-  <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" name="password" required id="password" placeholder="password">
-</div>
-<button type="submit">Create!</button>
-</form>
+      <div class="col-sm-10 searchbar">
+        <input type="email" class="txtb search_input" name="email" required id="email" placeholder="email">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="password">Password <small>At least 8 characters one uppercase one lowercase</small></label>
+      <div class="col-sm-10 searchbar">
+        <input type="password" class="txtb search_input" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" name="password" required id="password"
+          placeholder="password">
+      </div>
+    </div>
+    <button type="submit" class="btn rounded-btns-red ">Create!</button>
+  </form>
 </div>
