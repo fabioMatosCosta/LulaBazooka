@@ -1,4 +1,7 @@
-@import './navbar.css';
 @import "./base.css";
+@import './navbar.css';
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,400;0,500;0,700;0,800;0,900;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import './create-band.css';
+@import './buttons.css';
+@import './inputs.css';
