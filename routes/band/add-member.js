@@ -13,7 +13,6 @@ router.get("/add-member/:userId/:bandId",(req,res)=> {
     .then((band)=>{
         res.render('band/band-profile', {bandHbs: band});
     })
-
     // find the band with the id and push the userId in the members property (findbyidandupdate)
 })
 

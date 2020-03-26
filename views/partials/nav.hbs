@@ -9,28 +9,21 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <a href="/" class="btn btn-danger rounded-btns-red">Home</a>
-            
-            <a href="/signup" class="btn btn-danger rounded-btns-red">Signup!</a>
-            <a href="/login" class="btn btn-danger rounded-btns-red">Login!</a>
             <a href="/index" class="btn btn-danger rounded-btns-red">Index!</a>
             <a href="/profile" class="btn btn-danger rounded-btns-red">profile!</a>
             <a href="/band-profile" class="btn btn-danger rounded-btns-red">Band Profile!</a>
             <a href="/edit-profile" class="btn btn-danger rounded-btns-red">Edit Profile!</a>
             <a href="/create-band" class="btn btn-danger rounded-btns-red">Create Band!</a>
+            {{#if user}}
+                <a href="/profile" class="btn btn-danger rounded-btns-red">{{user.firstName}}</a>
+                <a href="/logout" class="btn btn-danger rounded-btns-red">Logout</a>
+            {{else}}
+                <a href="/signup" class="btn btn-danger rounded-btns-red">Signup!</a>
+                <a href="/login" class="btn btn-danger rounded-btns-red">Login!</a>
+            {{/if}}
         </ul>
     </div>
 </nav>
 
 
-{{#if user}}
-<li>
-    <a href="/profile" class="btn btn-danger rounded-btns-red">
-        {{!-- <img src="{{user.pic}}" alt="{{user.firstName}}" class="rounded-circle" width="50" height="50"> --}}
-        <p>{{user.firstName}}</p>
-    </a>
-</li>
-<li><a href="/logout" class="btn btn-danger rounded-btns-red">Logout</a></li>
-{{else}}
-
-{{/if}}
 <div class="container"></div>
