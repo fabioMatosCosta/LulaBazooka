@@ -9,6 +9,11 @@ Instruments:
 </div>
 <div class="user-bands">
   <h6>Bands:</h6>
+  <ul>
+    {{#each profLoop.bands}}
+      <li><div>{{this}}</div></li>
+    {{/each}}
+  </ul> 
   
   <a href="/create-band"><button type="submit">Create A Band</button></a>
   <a href="/find-band"><button type="submit">Join A Band</button></a>

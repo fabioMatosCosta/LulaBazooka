@@ -35,6 +35,10 @@ const userSchema = new Schema({
         instruments: [{
             type: String,
         }],
+        bands:[{
+            type: mongoose.Types.ObjectId,
+            ref: "bands" 
+        }]
 })
 
 const User = mongoose.model("User", userSchema);

@@ -6,7 +6,12 @@
 </ul>
 <p>{{bandHbs.info}}</p>
 <p>Admin email: {{bandHbs.admin.email}}</p>
+<ul>
+    {{#each bandHbs.members}}
+        <li>{{this.firstName}}</li>
+    {{/each}}
+</ul>
 
-<a href="/find-member"><button>Find members</button></a>
+<a href="/find-member/{{bandHbs._id}}"><button>Find members</button></a>
 
 <a href="/edit-band/{{bandHbs._id}}"><button>Edit</button></a>

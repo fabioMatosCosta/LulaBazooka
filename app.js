@@ -44,7 +44,7 @@ app.use(require('node-sass-middleware')({
 
 app.use(session({
   secret: "basic-auth-secret",
-  cookie: { maxAge: 60000 },
+  cookie: { maxAge: 1200000 },
   store: new MongoStore({
     mongooseConnection: mongoose.connection,
     ttl: 24 * 60 * 60 
@@ -60,7 +60,7 @@ function protect(req,res,next){
 
 function addUserObject(req, res, next){
   if(req.session.currentUser){
-    req.locals.user = req.session.currentUser;
+    res.locals.user = req.session.currentUser;
   }
   next();
 }
@@ -73,25 +73,25 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 hbs.registerPartials(__dirname + '/views/partials');
 
 
-// default value for title local
-// app.locals.title = 'Express - Generated with IronGenerator';
-
 
 
 const index = require('./routes/index');
-const signup = require("./routes/signup")
-const login = require("./routes/login")
-const profile = require("./routes/profile")
-const edit = require("./routes/edit-profile")
-const logout = require("./routes/logout")
-const bandCreate = require("./routes/createband")
-const bandProfile = require("./routes/band-profile")
-const bandFind = require("./routes/bandfind")
-const memberFind = require("./routes/memberfind")
-const profileDetail = require("./routes/profile-detail")
-const editBand = require("./routes/band-edit")
+const signup = require("./routes/signup");
+const login = require("./routes/login");
+const profile = require("./routes/user/profile");
+const edit = require("./routes/user/edit-profile")
+const logout = require("./routes/user/logout")
+const bandCreate = require("./routes/band/createband")
+const bandProfile = require("./routes/band/band-profile")
+const bandFind = require("./routes/user/bandfind")
+const memberFind = require("./routes/band/memberfind")
+const profileDetail = require("./routes/user/profile-detail")
+const editBand = require("./routes/band/band-edit")
+const bandDetail = require("./routes/band/band-detail")
+const addMember = require("./routes/band/add-member")
 
-// app.use(addUserObject);
+app.use(addUserObject);
+
 app.use('/', index);
 app.use('/', signup);
 app.use('/', login);
@@ -104,6 +104,9 @@ app.use('/', bandFind);
 app.use('/', memberFind);
 app.use('/', profileDetail);
 app.use('/', editBand);
+app.use('/', bandDetail);
+app.use('/', addMember);
+
 app.use((err,req,res,next)=>{
   res.render("error.hbs",{message:err})
 })

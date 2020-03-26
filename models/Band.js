@@ -6,7 +6,6 @@ const bandSchema = new Schema({
     bandName: {
         type: String,
         required: true,
-
     },
     genres: [{
         type: String,
@@ -14,12 +13,11 @@ const bandSchema = new Schema({
     info: String,
     admin: {
         type: mongoose.Types.ObjectId,
-        ref: "User"
+        ref: "users"
     },
-    
     members : [{
         type: mongoose.Types.ObjectId,
-        ref: "Users"
+        ref: "users"
     }]
 })
 

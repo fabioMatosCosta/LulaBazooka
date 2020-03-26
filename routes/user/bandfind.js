@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Band = require("../models/Band")
+const Band = require("../../models/Band")
 
 router.get("/find-band",(req,res)=>{
     Band.find()

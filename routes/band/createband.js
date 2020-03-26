@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Band = require("../models/Band")
+const Band = require("../../models/Band")
 const session  = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 
@@ -18,7 +18,8 @@ router.post("/create-band", (req,res,next) =>{
       return arr;
     }
     let genresArr = getGenres();
-    Band.findOne({
+    Band
+    .findOne({
       bandName
     })
     .then((band)=>{
