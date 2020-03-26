@@ -44,14 +44,19 @@ a {
 .txtb{
   margin: 20px 0;
   background: rgb(88, 88, 88);
-  border-radius: 6px;
+  border-radius: 1.25;
 }
 
 ::placeholder{
   color: white;
 }
 
-.searchbar{
+.rounded-inputs{
+  border: rgb(92, 92, 92) 1px solid;
+  height: 2.4rem;
+  border-radius: 32px;
+}
+/* .searchbar{
     margin-bottom: auto;
     margin-top: auto;
     height: 60px;
@@ -69,19 +74,19 @@ a {
     width: 0;
     caret-color:transparent;
     line-height: 1rem;
-    transition: width 0.8s linear;
+    
     }
 
     .searchbar:hover > .search_input{
     padding: 0 10px;
     width: 50rem;
     caret-color:red;
-    transition: width 0.8s linear;
+    
     }
 
     .searchbar:hover > .search_icon{
     background: white;
     color: #e74c3c;
-    }
+    } */
 
     
