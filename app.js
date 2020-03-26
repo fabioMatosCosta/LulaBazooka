@@ -74,7 +74,6 @@ hbs.registerPartials(__dirname + '/views/partials');
 
 
 
-
 const index = require('./routes/index');
 const signup = require("./routes/signup");
 const login = require("./routes/login");

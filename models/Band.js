@@ -21,5 +21,5 @@ const bandSchema = new Schema({
     }]
 })
 
-const Band = mongoose.model("Band",bandSchema)
+const Band = mongoose.model("bands",bandSchema)
 module.exports = Band;
