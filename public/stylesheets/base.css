@@ -3,7 +3,7 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; 
   color: white!important;
   font-family: 'Montserrat Alternates', sans-serif;
-  /* text-align: center; */
+  font-size: 1rem ;
 }
 input, select, textarea {
   color: rgb(255, 255, 255);
@@ -17,6 +17,11 @@ a {
   font-family: 'Press Start 2P', cursive;
   font-weight: bold;
   margin-bottom: 5rem;
+  
+}
+
+#band-titles{
+  font-family: 'Bungee Inline', cursive;
 }
 
 #footer{

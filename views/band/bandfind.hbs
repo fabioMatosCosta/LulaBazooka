@@ -1,8 +1,10 @@
+<div class="container text-center">
 {{#each bandHbs}}
     <div class="band">
-        <h2>{{bandName}}</h2>
+        <h2 id="band-titles">{{bandName}}</h2>
         <p>{{genres}}</p><br>
         <p>creator: {{admin.firstName}}</p>
-        <a href="/band-detail/{{_id}}"><button type="submit">Find out more about us!</button></a>
+        <a href="/band-detail/{{_id}}"><button type="submit" class="btn rounded-btns-red">Interested?</button></a>
     </div>
 {{/each}}
+</div>
