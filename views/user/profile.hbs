@@ -11,10 +11,9 @@ Instruments:
   <h6>Bands:</h6>
   <ul>
     {{#each profLoop.bands}}
-      <li><div>{{this}}</div></li>
+      <li><div><a href="/band-detail/{{this._id}}">{{this.bandName}}</a></div></li>
     {{/each}}
   </ul> 
-  
   <a href="/create-band"><button type="submit" class="btn rounded-btns-red">Create A Band</button></a>
   <a href="/find-band"><button type="submit" class="btn rounded-btns-red">Join A Band</button></a>
 </div>
