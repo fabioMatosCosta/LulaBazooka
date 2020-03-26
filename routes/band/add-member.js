@@ -11,7 +11,7 @@ router.get("/add-member/:userId/:bandId",(req,res)=> {
     },{'new': true})
     .populate("members")
     .then((band)=>{
-        // res.render('band/band-profile', {bandHbs: band});git a
+        // res.render('band/band-profile', {bandHbs: band});
         res.redirect(`/band-profile/${req.params.bandId}`);
     })
     .catch((err)=>{

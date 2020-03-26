@@ -15,4 +15,3 @@ router.get('/band-profile/:id', (req, res) => {
 
 
 module.exports = router;
-
