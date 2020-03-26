@@ -32,10 +32,11 @@ a {
 hr.line { /* Not really supposed to work, but does */
   border: 0;
   height: 25px;
-  width: 50vw;
+  width: 100vw;
   background-image: url('http://www.formget.com/wp-content/uploads/2014/12/type_3.png');
   background-repeat: no-repeat;
     background-position: center;
+    background-size: contain;
 }
 #band-titles{
   font-family: 'Bungee Inline', cursive;
