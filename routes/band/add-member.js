@@ -6,15 +6,6 @@ const User = require("../../models/User")
 
 router.get("/add-member/:userId/:bandId",(req,res)=> {
     Band
-    // .findById(req.params.bandId)
-    // .then((band)=>{
-    //     let arr = band.members;
-    //     arr.forEach(member => {
-    //         console.log(member._id);
-    //         if((member._id)===(req.params.userId)){
-    //         }
-    //     });
-    // })
     .findByIdAndUpdate(req.params.bandId, {
         $push: { members: req.params.userId }
     },{'new': true})

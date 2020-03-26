@@ -9,7 +9,7 @@ const MongoStore = require("connect-mongo")(session);
 });
 
 router.post("/create-band", (req,res,next) =>{
-    let name = req.body.bandName;
+    let bandName = req.body.bandName;
     function getGenres(){
     let arr = [];
     for (const key in req.body) {
@@ -18,8 +18,6 @@ router.post("/create-band", (req,res,next) =>{
       return arr;
     }
     let genresArr = getGenres();
-    function cap(str){str.charAt(0).toUpperCase() + str.slice(1)} 
-    let bandName=cap(name)
     Band
     .findOne({
       bandName
