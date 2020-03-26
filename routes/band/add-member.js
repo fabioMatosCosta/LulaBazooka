@@ -11,16 +11,17 @@ router.get("/add-member/:userId/:bandId",(req,res)=> {
     },{'new': true})
     .populate("members")
     .then((band)=>{
-        
-        res.redirect(`/band-profile/${req.params.bandId}`);
+        User.findByIdAndUpdate(req.params.userId, {
+            $push: { bands: req.params.bandId }
+        })
+        .populate("bands")
+        .then(()=>{
+            res.redirect(`/band-profile/${req.params.bandId}`);
+        })
     })
     .catch((err)=>{
         console.log("Add member error:", err)
     })
 })
-
-// User.findByIdAndUpdate(req.params.userId, {
-//     $push: { bands: band._id }
-// })
 
 module.exports = router;
