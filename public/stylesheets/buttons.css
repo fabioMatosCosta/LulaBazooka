@@ -1,0 +1,22 @@
+.rounded-btns-red{
+    border-radius: 1.25rem;
+    background-color: red;
+    color: white;
+  }
+  
+  .rounded-btns-white{
+    border-radius: 1.25rem;
+    background-color: white;
+    color: red;
+  }
+
+  .wide-btn{
+    width: 100%;
+    height: 5vh;
+  }
+  
+  .txtb{
+    margin: 20px 0;
+    background: rgb(88, 88, 88);
+    border-radius: 1.25;
+  }

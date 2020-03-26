@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function() {
         elements[i].oninvalid = function(e) {
             e.target.setCustomValidity("");
             if (!e.target.validity.valid) {
-                e.target.setCustomValidity("Bro...you think i'm a joke?Fill me up Dude!");
+                e.target.setCustomValidity("Bro...you think i'm a joke?Fill me up Dude!With the correct patterns!");
             }
         };
         elements[i].oninput = function(e) {
