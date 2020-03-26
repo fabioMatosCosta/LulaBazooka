@@ -3,13 +3,16 @@
     <div class="member bg-dark">
         <div>
         <h2>{{firstName}}</h2>
-        <p>{{instruments}}</p><br>
+        <ol>
+            {{#each instruments}}
+        <li>{{this}}</li>
+        {{/each}}
+        </ol>
         </div>
         <div>
         <a href="/profile/{{_id}}"><button class="btn rounded-btns-red ml-4">Find out more</button></a>
         <a href="/add-member/{{_id}}/{{../bandId}}"><button class="btn rounded-btns-white mb-5 ml-4">Add me</button></a>
         </div>
-       
     </div>
      <hr class="line">
 {{/each}}
