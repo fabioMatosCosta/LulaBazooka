@@ -15,7 +15,7 @@ router.get('/login', (req, res, next) => {
       username
     })
     .then((user)=>{
-      if(!user) res.send("Invalid Credentials")
+      if(!user) next("Invalid Credentials")
       else {
         bcrypt.compare(password,user.password, function(err,correctPassword){
           if(err) next("hash compare error");

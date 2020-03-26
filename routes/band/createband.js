@@ -23,7 +23,7 @@ router.post("/create-band", (req,res,next) =>{
       bandName
     })
     .then((band)=>{
-      if(band) res.send("Band Name Already Exists")
+      if(band) next("Band Name Already Exists")
       else {
           Band.create({
             bandName: bandName,
