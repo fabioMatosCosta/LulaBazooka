@@ -2,12 +2,14 @@
   <div class="d-flex justify-content-center">
 <h1> Hey {{profLoop.firstName}}...Sup?</h1>
 </div>
+<div class="container">
 Instruments:
-<ol>
+<ol class="text-left">
   {{#each profLoop.instruments}}
-  <li>{{this}}</li>
+  <li >{{this}}</li>
   {{/each}}
 </ol>
+</div>
 </div>
 <div class="user-bands">
   <h6>Bands:</h6>
@@ -21,9 +23,11 @@ Instruments:
     {{#each profLoop.adminOf}}
       <li><div><a href="/band-profile/{{this._id}}">{{this.bandName}}</a></div></li>
     {{/each}}
-  </ul> 
+  </ul>
+  <div class="container">
   <a href="/create-band"><button type="submit" class="btn rounded-btns-red">Create A Band</button></a>
   <a href="/find-band"><button type="submit" class="btn rounded-btns-white">Join A Band</button></a>
+  </div>
 </div>
 
 <hr class="line">

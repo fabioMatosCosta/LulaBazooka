@@ -10,8 +10,7 @@ const path         = require('path');
 const bcrypt     = require("bcrypt");
 const session    = require("express-session");
 const MongoStore = require("connect-mongo")(session);
-const multer  = require('multer');
-const upload = multer({ dest: './public/uploads/' });
+
 
 
 
