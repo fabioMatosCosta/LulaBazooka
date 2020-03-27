@@ -1,9 +1,11 @@
-<div class="container text-center">
+<div class="text-center">
+  <div class="d-flex justify-content-center">
 <h1> Hey {{profLoop.firstName}}...Sup?</h1>
+</div>
 Instruments:
 <ol>
   {{#each profLoop.instruments}}
-    <li><div>{{this}}</div></li>
+  <li>{{this}}</li>
   {{/each}}
 </ol>
 </div>

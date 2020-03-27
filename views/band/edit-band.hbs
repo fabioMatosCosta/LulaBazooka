@@ -2,9 +2,11 @@
     <div class="form-group row">
         <label for="info" class="form-check-label">Band Bio</label>
     <div class="col-sm-10">
-        <input type="text" class="form-check-input"  name="info" placeholder="info">
+        {{!-- <input type="text" class="form-check-input rounded-inputs bg-dark"  name="info" placeholder="info"> --}}
+        <textarea name="info" class="form-check-input rounded-inputs bg-dark" cols="30" rows="10"></textarea>
         </div>
     </div>
+    <div class="mt-5">
     <input class="form-check-input" type="checkbox"  class="checks" name="Hard Rock">
     <label for="hard" class="form-check-label">Hard Rock</label><br>
     <input type="checkbox"  class="checks form-check-input" name="Heavy Metal">
@@ -14,4 +16,5 @@
     <input type="checkbox"  class="checks form-check-input" name="Black Metal">
     <label for="black" class="form-check-label">POP!Kidding...Black Metal\m/</label><br>
         <button type="submit" class="btn rounded-btns-white mt-5">Edit</button>
+        </div>
 </form>

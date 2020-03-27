@@ -3,7 +3,7 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; 
   color: white!important;
   font-family: 'Montserrat Alternates', sans-serif;
-  font-size: 1rem ;
+  
 }
 input, select, textarea {
   color: rgb(255, 255, 255);
@@ -13,12 +13,34 @@ a {
   text-decoration: none;
  }
 
-#page-title{
+.page-title{
   font-family: 'Press Start 2P', cursive;
   font-weight: bold;
   margin-bottom: 5rem;
-  
+  text-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 1em rgb(255, 26, 26), 0 0 0.2em rgb(255, 50, 211);
 }
+  .page-title{
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid rgb(197, 0, 0); /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: .15em; /* Adjust as needed */
+    animation: 
+      typing 3.5s steps(40, end),
+      blink-caret .75s step-end infinite;
+  }
+  
+  /* The typing effect */
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 120% }
+  }
+  
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange; }
+  }
 
 .member{
   display: flex;
@@ -40,6 +62,8 @@ hr.line { /* Not really supposed to work, but does */
 }
 #band-titles{
   font-family: 'Bungee Inline', cursive;
+  text-shadow: 0 0 3px rgb(255, 0, 0), 0 0 5px rgb(255, 255, 255);
+
 }
 
 #footer{
