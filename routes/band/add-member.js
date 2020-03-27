@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Band = require("../../models/Band");
-const User = require("../../models/User")
+const User = require("../../models/User");
 // protect to check if the user who's logged in, is an/the amdin of the band
 
 router.get("/add-member/:userId/:bandId",(req,res)=> {

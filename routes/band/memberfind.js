@@ -10,6 +10,9 @@ router.get("/find-member/:bandId",(req,res)=>{
         .then((user)=>{
             res.render("band/memberfind", {userHbs: user, bandId: req.params.bandId})
         })
+        .catch((err)=>{
+            res.render("error", err)
+        })
 })
 
 

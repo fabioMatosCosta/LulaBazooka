@@ -38,7 +38,12 @@ const userSchema = new Schema({
         bands:[{
             type: mongoose.Types.ObjectId,
             ref: "bands" 
-        }]
+        }],
+        adminOf:[{
+            type: mongoose.Types.ObjectId,
+            ref: "bands" 
+        }],
+
 })
 
 const User = mongoose.model("users", userSchema);

@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const Band = require("../../models/Band")
+const Band = require("../../models/Band");
+const User = require("../../models/User");
 const session  = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 
@@ -29,12 +30,16 @@ router.post("/create-band", (req,res,next) =>{
             bandName: bandName,
             genres: genresArr,
             info: req.body.info,
-            admin: req.session.currentUser._id
+            admin: req.session.currentUser._id,
+            members : req.session.currentUser._id
           })
           .then((band)=> {
+            User.findByIdAndUpdate(band.admin, {
+              $push: { adminOf: band._id }
+              })
             res.redirect(`/band-profile/${band._id}`);
           })
-          }
+          }  
         })
     .catch((err)=>{
       console.log("Error creating band:", err)

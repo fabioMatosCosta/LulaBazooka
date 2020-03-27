@@ -5,10 +5,10 @@
     {{/each}}
 </ul>
 <p>{{bandHbs.info}}</p>
+<p> <a href="/profile/{{bandHbs.admin._id}}"> Admin: {{bandHbs.admin.firstName}}</a></p>
 <p>Admin email: {{bandHbs.admin.email}}</p>
 <h6>Band members:</h6>
 <ul>
-    <li> <a href="/profile/{{bandHbs.admin._id}}"> Admin: {{bandHbs.admin.firstName}}</a></li>
     {{#each bandHbs.members}}
         <li><a href="/profile/{{this._id}}">{{this.firstName}}</a></li>
     {{/each}}

@@ -14,15 +14,21 @@ Instruments:
       <li><div><a href="/band-detail/{{this._id}}">{{this.bandName}}</a></div></li>
     {{/each}}
   </ul> 
+  <h6>Admin of:</h6>
+  <ul>
+    {{#each profLoop.adminOf}}
+      <li><div><a href="/band-profile/{{this._id}}">{{this.bandName}}</a></div></li>
+    {{/each}}
+  </ul> 
   <a href="/create-band"><button type="submit" class="btn rounded-btns-red">Create A Band</button></a>
-  <a href="/find-band"><button type="submit" class="btn rounded-btns-red">Join A Band</button></a>
+  <a href="/find-band"><button type="submit" class="btn rounded-btns-white">Join A Band</button></a>
 </div>
 
 <hr class="line">
 <div>
 <a href="/edit-profile"><button type="submit" class="btn rounded-btns-red">Edit Your Rockfile!</button></a>
 
-<a href="/logout"><button type="submit" class="btn rounded-btns-red">Rock Out!</button></a>
+<a href="/logout"><button type="submit" class="btn rounded-btns-white">Rock Out!</button></a>
 </div>
 
 {{!-- <section>
