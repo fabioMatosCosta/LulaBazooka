@@ -3,9 +3,8 @@ const router  = express.Router();
 const User = require("../../models/User");
 const Band = require("../../models/Band");
 const mongoose = require("mongoose");
-const session    = require("express-session");
-const MongoStore = require("connect-mongo")(session);
-
+const session = require("express-session");
+const MongoStore = require("connect-mongo");
 
 router.get('/profile', (req, res, next) => {
     User

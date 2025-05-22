@@ -9,24 +9,31 @@ const logger       = require('morgan');
 const path         = require('path');
 const bcrypt     = require("bcrypt");
 const session    = require("express-session");
-const MongoStore = require("connect-mongo")(session);
-
-
-
+const MongoStore = require("connect-mongo");
 
 const mongoUsername = process.env.MONGOUSERNAME
 const mongoPassword = process.env.MONGOPASSWORD
+const mongoUri = `mongodb+srv://${mongoUsername}:${encodeURIComponent(mongoPassword)}@cluster0.bjna4yv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 
-mongoose
-  .connect(`mongodb+srv://${mongoUsername}:${mongoPassword}@cluster0-v2ysd.mongodb.net/dopperdb`, {useNewUrlParser: true,useUnifiedTopology: true})
-  .then(x => {
-    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
-  })
-  .catch(err => {
-    console.error('Error connecting to mongo', err)
-  });
+// MongoDB connection
+(async () => {
+  try {
+    await mongoose.connect(mongoUri);
+    console.log(`Connected to MongoDB! Database name: "${mongoose.connection.name}"`);
+  } catch (err) {
+    console.error('Error connecting to MongoDB:', err.message);
+    process.exit(1);
+  }
+})();
 
-mongoose.set('useFindAndModify', false);
+// Get the default connection
+const db = mongoose.connection;
+
+// Bind connection to error event (to get notification of connection errors)
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
+// Set mongoose options
+mongoose.set('strictQuery', false);
 
 const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
@@ -41,20 +48,48 @@ app.use(cookieParser());
 
 // Express View engine setup
 
-app.use(require('node-sass-middleware')({
-  src:  path.join(__dirname, 'public'),
+// Configure sass middleware
+const sassMiddleware = require('node-sass-middleware');
+app.use(sassMiddleware({
+  src: path.join(__dirname, 'public'),
   dest: path.join(__dirname, 'public'),
+  debug: true,
+  outputStyle: 'compressed',
   sourceMap: true
 }));
 
-app.use(session({
-  secret: "basic-auth-secret",
-  cookie: { maxAge: 1200000 },
-  store: new MongoStore({
-    mongooseConnection: mongoose.connection,
-    ttl: 24 * 60 * 60 
-  })
-}));
+// Session configuration
+const sessionStore = MongoStore.create({
+  mongoUrl: mongoUri,
+  collectionName: 'sessions',
+  ttl: 24 * 60 * 60, // 1 day
+  autoRemove: 'native' // Remove expired sessions automatically
+});
+
+// Catch errors in the session store
+sessionStore.on('error', function(error) {
+  console.error('Session store error:', error);
+});
+
+const sessionConfig = {
+  secret: process.env.SESSION_SECRET || "fallback-secret-key",
+  cookie: { 
+    maxAge: 24 * 60 * 60 * 1000, // 1 day in milliseconds
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production' // Use secure cookies in production
+  },
+  store: sessionStore,
+  resave: false, // Don't save session if unmodified
+  saveUninitialized: false, // Don't create session until something is stored
+  unset: 'destroy' // Delete the session when unset
+};
+
+if (app.get('env') === 'production') {
+  app.set('trust proxy', 1); // Trust first proxy
+  sessionConfig.cookie.secure = true; // Serve secure cookies
+}
+
+app.use(session(sessionConfig));
 
 //middleware functions
 

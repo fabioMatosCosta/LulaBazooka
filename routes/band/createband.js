@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router();
 const Band = require("../../models/Band");
 const User = require("../../models/User");
-const session  = require("express-session");
-const MongoStore = require("connect-mongo")(session);
+const session = require("express-session");
+const { MongoStore } = require("connect-mongo");
 const mongoose = require("mongoose");
 
 router.get('/create-band', (req, res, next) => {

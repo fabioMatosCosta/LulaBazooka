@@ -4,9 +4,8 @@ const User = require("../../models/User");
 const Band = require("../../models/Band")
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
-const session    = require("express-session");
-const MongoStore = require("connect-mongo")(session);
-
+const session = require("express-session");
+const MongoStore = require("connect-mongo");
 
 router.get('/profile/:id', (req, res, next) => {
     User.findById(req.params.id)

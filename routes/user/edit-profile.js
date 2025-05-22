@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const User = require("../../models/User")
-const session    = require("express-session");
-const MongoStore = require("connect-mongo")(session);
+const session = require("express-session");
+const MongoStore = require("connect-mongo");
 
 
 router.get('/edit-profile/', (req, res, next) => {
